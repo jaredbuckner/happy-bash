@@ -1,0 +1,108 @@
+## -*- shell-script -*-
+
+## Prompt-related functionality
+ps_make_color () {
+    echo "\[\e[${1}m\]${2}\[\e[0m\]"
+}
+
+ps_time () {
+    ps_make_color 35 '\t'
+}
+
+pscb_userhost () {
+    if [ "$1" = "0" ] ; then
+        echo "32"
+    else
+        echo "31"
+    fi
+}
+
+ps_userhost () {
+    ps_make_color '$(pscb_userhost $?)' '\u@\h'
+}
+
+ps_proj () {
+    ps_make_color 36 '$PROJ'
+}
+
+pscb_dir () {
+    if [ -r "$PWD" ] ; then
+        if [ -w "$PWD" ] ; then
+            if [ -O "$PWD" ] ; then
+                echo "32"
+            else
+                echo "36"
+            fi
+        else
+            if [ -O "$PWD" ] ; then
+                echo "0"
+            else
+                echo "33"
+            fi
+        fi
+    else
+        if [ -w "$PWD" ] ; then
+            if [ -O "$PWD" ] ; then
+                echo "1;35"
+            else
+                echo "35"
+            fi
+        else
+            if [ -O "$PWD" ] ; then
+                echo "1;31"
+            else
+                echo "31"
+            fi
+        fi
+    fi
+}
+
+ps_dir () {
+    ps_make_color '$(pscb_dir)' '\w'
+}
+
+pscb_gitstat () {
+    if _gt_raw=$(git status --porcelain --ignored 2>/dev/null) ; then
+        
+        _gs_str=$(echo "${_gt_raw}" | cut -c1 | sort -u)
+    
+        if [ -z "${_gs_str}" ] ; then
+            echo "1;32"
+        elif [ "${_gs_str}" != "${_gs_str/M/}" ] ; then
+            echo "1;33"
+        elif [ "${_gs_str}" != "${_gs_str/A/}" ] ; then
+            echo "1;33"
+        elif [ "${_gs_str}" != "${_gs_str/U/}" ] ; then
+            echo "1;33"
+        elif [ "${_gs_str}" != "${_gs_str/D/}" ] ; then
+            echo "1;33"
+        elif [ "${_gs_str}" != "${_gs_str/ /}" ] ; then
+            echo "1;31"
+        elif [ "${_gs_str}" != "${_gs_str/\?/}" ] ; then
+            echo "1;36"
+        else
+            echo "1;32"
+        fi
+    else
+        echo "0"
+    fi
+}
+
+pscb_gitbranch () {
+    if _gb_raw=$(git branch --no-color --list 2>/dev/null) ; then
+        
+        _gb_str=$(echo "${_gb_raw}" | grep \\\* | cut -f2 -d' ')
+        echo "(${_gb_str})"
+
+    else
+        echo ':'
+    fi
+}
+
+ps_gitstat () {
+    ps_make_color '$(pscb_gitstat)' '$(pscb_gitbranch)'
+}
+
+ps_settitle() {
+    echo '\[\e]1;'"${*}"'\a\e]2;'"${*}"'\a\]'
+}

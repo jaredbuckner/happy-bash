@@ -1,0 +1,10 @@
+## -*- shell-script -*-
+
+## Other environment settings go here
+stty erase '^?'
+export FIGNORE="~"
+export HISTCONTROL=ignoredups
+export LESS="-M -X -R"
+set -o emacs
+set -o noclobber
+set +H

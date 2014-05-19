@@ -1,0 +1,9 @@
+## -*- shell-script -*-
+
+## Set your preferred editor, viewer, and shell editing modes
+EDITOR=emacs
+VISUAL=emacs
+PAGER=less
+export EDITOR
+export VISUAL
+export PAGER

@@ -1,0 +1,12 @@
+## -*- shell-script -*-
+
+## Show all available executable in the path matching the given pattern
+avail () {
+    for dir in `echo $PATH | sed 's/:/ /g'` ; do
+        for file in $dir/$1 ; do
+            test -x $file && test ! -d $file && echo $file
+        done
+    done
+    return 0
+}
+
