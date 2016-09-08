@@ -1,0 +1,5 @@
+## -*- shell-script -*-
+
+## Set your prompt here.
+
+export PS1="< $(ps_time) : $(ps_userhost) $(ps_gitstat) $(ps_dir) >"'\n\$ '"$(ps_settitle $0 : \\w)"
