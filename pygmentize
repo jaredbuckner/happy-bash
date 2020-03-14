@@ -1,0 +1,7 @@
+## -*- bash -*-
+#
+# Colorful less
+
+function pygless () {
+    LESSOPEN='| pygmentize -g -O bg=dark %s' less -R "$@"
+}
