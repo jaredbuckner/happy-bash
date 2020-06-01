@@ -5,7 +5,7 @@ stty erase '^?'
 export FIGNORE="~"
 export HISTCONTROL=ignoredups
 export LESS="-M -X -R"
-export TZ=/usr/share/zoneinfo/US/Eastern
+export TZ=US/Eastern
 set -o emacs
 set -o noclobber
 set +H
