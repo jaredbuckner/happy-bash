@@ -9,3 +9,4 @@ export TZ=/usr/share/zoneinfo/US/Eastern
 set -o emacs
 set -o noclobber
 set +H
+shopt -s checkwinsize

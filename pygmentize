@@ -3,5 +3,5 @@
 # Colorful less
 
 function pygless () {
-    LESSOPEN='| pygmentize -g -O bg=dark %s' less -R "$@"
+    LESSOPEN='| pygmentize -O bg=dark -g %s' less -R "$@"
 }
