@@ -1,9 +1,19 @@
 ; Let's initialize things... nicely...
-(global-font-lock-mode t)
-(delete-selection-mode t)
 (column-number-mode t)
+(delete-selection-mode t)
+(global-font-lock-mode t)
 (line-number-mode t)
 (xterm-mouse-mode t)
+
+(setq-default case-fold-search t)
+(setq-default colon-double-space t)
+(setq-default fill-column 79)
+(setq-default frame-title-format "%b - emacs")
+(setq-default indent-tabs-mode nil)
+(setq-default isearch-highlight t)
+(setq-default next-line-add-newlines nil)
+(setq-default search-highlight t)
+(setq-default show-paren-mode t)
 
 (setq verilog-mode-hook '(lambda ()
                            ;; User specifications
@@ -13,9 +23,7 @@
                            (font-lock-fontify-buffer)
                            (setq indent-tabs-mode nil)))
 
-(setq frame-title-format "%b")
 
-(setq-default indent-tabs-mode nil)
 (setq-default verilog-auto-newline nil)
 (setq-default verilog-case-indent 2)
 (setq-default verilog-cexp-indent 2)
