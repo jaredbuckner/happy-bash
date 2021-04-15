@@ -2,6 +2,6 @@
 
 # User specific aliases and functions
 for script in ${HOME}/.bash.d/* ; do
-    [[ "${script}" != no_* ]] && [[ "${script}" != *~ ]] && source "${script}"
+    [[ -f "${script}" ]] && [[ "${script}" != "no_*" ]] && [[ "${script}" != "*~" ]] && source "${script}"
 done
 
