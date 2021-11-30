@@ -2,6 +2,7 @@
 
 # User specific aliases and functions
 for script in ${HOME}/.bash.d/* ; do
-    [[ -f "${script}" ]] && [[ "${script}" != "no_*" ]] && [[ "${script}" != "*~" ]] && source "${script}"
+    ## Note to self:  globs must NOT be quoted in bash [[ CONDITIONAL ]] expressions.
+    [[ -f "${script}" ]] && [[ "${script}" != no_* ]] && [[ "${script}" != *~ ]] && source "${script}"
 done
 
