@@ -3,6 +3,7 @@
 (delete-selection-mode t)
 (global-font-lock-mode t)
 (line-number-mode t)
+(show-paren-mode t)
 (xterm-mouse-mode t)
 
 (setq-default case-fold-search t)
@@ -13,7 +14,7 @@
 (setq-default isearch-highlight t)
 (setq-default next-line-add-newlines nil)
 (setq-default search-highlight t)
-(setq-default show-paren-mode t)
+; (setq-default show-paren-mode t)
 
 (setq verilog-mode-hook '(lambda ()
                            ;; User specifications
