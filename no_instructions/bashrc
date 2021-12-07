@@ -1,5 +1,7 @@
 # .bashrc
 
+if [[ -f /etc/bashrc ]] ; then source /etc/bashrc ; fi
+
 # User specific aliases and functions
 for script in ${HOME}/.bash.d/* ; do
     ## Note to self:  globs must NOT be quoted in bash [[ CONDITIONAL ]] expressions.
