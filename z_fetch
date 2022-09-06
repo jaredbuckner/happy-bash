@@ -1,4 +1,8 @@
 ## -*- shell-script -*-
 
 ## Print a *fetch if one exists
-command -v screenfetch >/dev/null 2>&1 && screenfetch
+if command -v screenfetch >/dev/null 2>&1 ; then
+    screenfetch
+else
+    true
+fi
