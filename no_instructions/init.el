@@ -6,6 +6,14 @@
 (show-paren-mode t)
 (xterm-mouse-mode t)
 
+; (require 'package)
+; (add-to-list 'package-archives
+;              '("melpa" . "https://melpa.org/packages/") t)
+; (package-initialize)
+; (package-refresh-contents)
+
+(require 'rust-mode)
+
 (setq-default case-fold-search t)
 (setq-default colon-double-space t)
 (setq-default fill-column 79)
