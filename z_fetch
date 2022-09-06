@@ -1,0 +1,4 @@
+## -*- shell-script -*-
+
+## Print a *fetch if one exists
+command -v screenfetch >/dev/null 2>&1 && screenfetch
