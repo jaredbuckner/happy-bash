@@ -12,7 +12,7 @@
 ; (package-initialize)
 ; (package-refresh-contents)
 
-(require 'rust-mode)
+(require 'rust-mode 'nil 't)
 
 (setq-default case-fold-search t)
 (setq-default colon-double-space t)
